@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      tableName: "世界编辑",
+      tableName: "基础信息：世界编辑",
       tableTitles: ["世界ID", "世界名字", "世界描述", "世界价值"],
       modalTitles: {
         add: "添加世界",

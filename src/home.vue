@@ -4,10 +4,10 @@
     <div class="row">
       <!-- 编辑菜单 -->
 
-      <labellist @changePanel="changerPanel" :labels="labels" />
+      <labellist @changePanel="changerPanel" :labels="labels" :show="show" />
       <!-- 编辑数据 -->
       <keep-alive>
-        <component :is="show" > </component>
+        <component :is="show"> </component>
       </keep-alive>
     </div>
   </div>
@@ -30,7 +30,7 @@ export default {
     return {
       labels: [
         {
-          titleName: "基本信息编辑",
+          titleName: "基础信息编辑",
           titleID: "basedataTitle",
           lablePanelID: "basedatalabelPanel",
           lableItems: {

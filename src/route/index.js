@@ -7,7 +7,7 @@ const login = () =>
 
 const routes = [
     // 重定向
-    // { path: "/", redirect: "/home" },
+    { path: "/", redirect: "/login" },
     {
         path: "/home",
         name: "home",

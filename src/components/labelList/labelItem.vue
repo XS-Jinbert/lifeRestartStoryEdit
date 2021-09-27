@@ -1,13 +1,16 @@
 <template>
-  <li class="list-group-item">
-    <a href="#" @click="changePanel">{{ label }}</a>
+  <li v-if="show == panelName" class="list-group-item btn active" @click="changePanel">
+    {{ label }}
+  </li>
+  <li v-else class="list-group-item btn" @click="changePanel">
+    {{ label }}
   </li>
 </template>
 
 <script>
 export default {
   emits: ["changePanel"],
-  props: ["label","panelName"],
+  props: ["label","panelName", "show"],
   methods: {
     changePanel() {
       this.$emit("changePanel", this.panelName);

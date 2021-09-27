@@ -14,12 +14,12 @@
                 role="button"
                 data-toggle="collapse"
                 data-parent="#accordion"
-                :href="'#'+item.lablePanelID"
+                :href="'#' + item.lablePanelID"
                 aria-expanded="false"
                 :aria-controls="item.lablePanelID"
                 class="collapsed"
               >
-                {{item.titleName}}
+                {{ item.titleName }}
               </a>
             </h4>
           </div>
@@ -32,8 +32,16 @@
           >
             <div class="panel-body">
               <ul class="list-group">
-                <template v-for="(label, key, index) in item.lableItems" :key="index + label">
-                  <labelItem :label="label" :panelName="key" @changePanel="changePanel"/>
+                <template
+                  v-for="(label, key, index) in item.lableItems"
+                  :key="index + label"
+                >
+                  <labelItem
+                    :label="label"
+                    :panelName="key"
+                    @changePanel="changePanel"
+                    :show="show"
+                  />
                 </template>
               </ul>
             </div>
@@ -51,10 +59,10 @@ export default {
     labelItem: labelItem,
   },
   emits: ["changePanel"],
-  props: ["labels"],
+  props: ["labels", "show"],
   methods: {
     changePanel(panelName) {
-      this.$emit('changePanel',panelName);
+      this.$emit("changePanel", panelName);
     },
   },
 };

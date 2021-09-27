@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      tableName: "成就编辑",
+      tableName: "基础信息：成就编辑",
       tableTitles: ["成就ID", "成就名字", "成就描述"],
       modalTitles: {
         add: "添加成就",
