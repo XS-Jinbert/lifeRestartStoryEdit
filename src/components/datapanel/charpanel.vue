@@ -13,33 +13,30 @@
   />
 </template>
 
+
 <script>
 import datapanel from "./basepanel/datapanel.vue";
-import { useRouter } from "vue-router";
 export default {
   components: {
     panel: datapanel,
   },
   data() {
     return {
-      router: useRouter(),
-      tableName: "基础信息：世界编辑",
-      tableTitles: ["世界ID", "世界名字", "世界描述", "世界价值"],
+      tableName: "人物特点：特点编辑",
+      tableTitles: ["成就ID", "成就名字", "成就描述"],
       modalTitles: {
-        add: "添加世界",
+        add: "添加成就",
         delete: "删除",
-        update: "修改世界信息",
-        info: "世界详情",
+        update: "修改成就信息",
+        info: "成就详情",
       },
       attList: {
-        worldID: { name: "世界标识", type: "number" },
+        achID: { name: "世界标识", type: "number" },
         name: { name: "世界名字", type: "text" },
         description: { name: "世界描述", type: "text" },
-        lifePoint: { name: "世界价值", type: "number" },
       },
       list: [],
       searchlist: [],
-      searchunit: null,
     };
   },
   methods: {
@@ -49,7 +46,7 @@ export default {
         this.router.push({ name: "login" });
       } else {
         this.axios
-          .get("http://localhost:8848/world/findAll")
+          .get("http://localhost:8848/achievement/findAll")
           .then((response) => {
             if (this.result(response)) {
               this.list = response.data.extended.list;
@@ -74,7 +71,7 @@ export default {
     addItemRequest(unit) {
       // 发送请求
       this.axios
-        .post("http://localhost:8848/world/add", unit)
+        .post("http://localhost:8848/achievement/add", unit)
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -92,7 +89,7 @@ export default {
     updateItemRequest(unit) {
       // 发送请求
       this.axios
-        .post("http://localhost:8848/world/update", unit)
+        .post("http://localhost:8848/achievement/update", unit)
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -110,7 +107,7 @@ export default {
     deleteItemRequest(unit) {
       // 发送请求
       this.axios
-        .delete("http://localhost:8848/world/delete", { data: unit })
+        .delete("http://localhost:8848/achievement/delete", { data: unit })
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -129,7 +126,7 @@ export default {
       // 发送请求
       this.searchunit = unit;
       this.axios
-        .post("http://localhost:8848/world/select", unit)
+        .post("http://localhost:8848/achievement/select", unit)
         .then((response) => {
           if (this.result(response)) {
             this.searchlist = response.data.extended.list;
@@ -158,3 +155,6 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

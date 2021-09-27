@@ -79,7 +79,7 @@ export default {
           if (this.result(response)) {
             console.log(response);
             this.login(response.data.extended.token);
-            alert("登录成功");
+            // alert("登录成功");
           }
         })
         .catch(function (error) {

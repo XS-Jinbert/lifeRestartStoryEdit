@@ -18,6 +18,8 @@ import title from "./components/title/title.vue";
 import labellist from "./components/labellist/labellist.vue";
 import worldpanel from "./components/datapanel/worldpanel.vue";
 import achievementpanel from "./components/datapanel/achievementpanel.vue";
+import choosepanel from "./components/datapanel/choosepanel.vue";
+import charpanel from "./components/datapanel/charpanel.vue";
 
 export default {
   components: {
@@ -25,6 +27,8 @@ export default {
     labellist: labellist,
     worldpanel: worldpanel,
     achievementpanel: achievementpanel,
+    choosepanel:choosepanel,
+    charpanel:charpanel,
   },
   data() {
     return {
@@ -54,16 +58,16 @@ export default {
           titleID: "chooseTitle",
           lablePanelID: "chooselabelPanel",
           lableItems: {
-            choosePanel: "选择编辑",
+            choosepanel: "选择编辑",
             chooseeffectPanel: "选择效果编辑",
           },
         },
         {
-          titleName: "人生特点编辑",
+          titleName: "人物特点编辑",
           titleID: "charTitle",
           lablePanelID: "charlabelPanel",
           lableItems: {
-            charPanel: "人物特点编辑",
+            charpanel: "人物特点编辑",
           },
         },
         {
