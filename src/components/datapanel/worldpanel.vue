@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import datapanel from "../datapanel/datapanel.vue";
+import datapanel from "./basepanel/datapanel.vue";
 export default {
   components: {
     panel: datapanel,
