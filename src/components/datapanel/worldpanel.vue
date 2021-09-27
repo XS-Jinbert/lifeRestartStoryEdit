@@ -15,12 +15,14 @@
 
 <script>
 import datapanel from "./basepanel/datapanel.vue";
+import { useRouter } from "vue-router";
 export default {
   components: {
     panel: datapanel,
   },
   data() {
     return {
+      router: useRouter(),
       tableName: "基础信息：世界编辑",
       tableTitles: ["世界ID", "世界名字", "世界描述", "世界价值"],
       modalTitles: {
@@ -41,20 +43,27 @@ export default {
     };
   },
   methods: {
+    tologin() {
+      this.router.push({ name: "login" });
+    },
     GetAllItem() {
       console.log("请求ing");
-      this.axios
-        .get("http://localhost:8848/world/findAll")
-        .then((response) => {
-          if (this.result(response)) {
-            this.list = response.data.extended.list;
-          }
-        })
-        .catch(function (error) {
-          // 请求失败处理
-          console.log("请求失败");
-          console.log(error);
-        });
+      if (this.axios.defaults.headers.common["token"] == null) {
+        this.tologin();
+      } else {
+        this.axios
+          .get("http://localhost:8848/world/findAll")
+          .then((response) => {
+            if (this.result(response)) {
+              this.list = response.data.extended.list;
+            }
+          })
+          .catch(function (error) {
+            // 请求失败处理
+            console.log("请求失败");
+            console.log(error);
+          });
+      }
     },
 
     // 更新查询出来的队列
