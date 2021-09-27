@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      tableName: "人物特点：特点编辑",
+      tableName: "执行效果：效果编辑",
       tableTitles: ["成就ID", "成就名字", "成就描述"],
       modalTitles: {
         add: "添加成就",
@@ -46,7 +46,7 @@ export default {
         this.router.push({ name: "login" });
       } else {
         this.axios
-          .get("http://localhost:8848/char/findAll")
+          .get("http://localhost:8848/effect/findAll")
           .then((response) => {
             if (this.result(response)) {
               this.list = response.data.extended.list;
@@ -71,7 +71,7 @@ export default {
     addItemRequest(unit) {
       // 发送请求
       this.axios
-        .post("http://localhost:8848/char/add", unit)
+        .post("http://localhost:8848/effect/add", unit)
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -89,7 +89,7 @@ export default {
     updateItemRequest(unit) {
       // 发送请求
       this.axios
-        .post("http://localhost:8848/char/update", unit)
+        .post("http://localhost:8848/effect/update", unit)
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -107,7 +107,7 @@ export default {
     deleteItemRequest(unit) {
       // 发送请求
       this.axios
-        .delete("http://localhost:8848/char/delete", { data: unit })
+        .delete("http://localhost:8848/effect/delete", { data: unit })
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
@@ -126,7 +126,7 @@ export default {
       // 发送请求
       this.searchunit = unit;
       this.axios
-        .post("http://localhost:8848/char/select", unit)
+        .post("http://localhost:8848/effect/select", unit)
         .then((response) => {
           if (this.result(response)) {
             this.searchlist = response.data.extended.list;

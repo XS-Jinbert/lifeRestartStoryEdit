@@ -99,7 +99,6 @@ export default {
       this.SetShowPage();
       // 获取到数据后显示第一页内容
       this.showList = this.totalPage[this.currentpage];
-      console.log("分页完成");
     },
     // 设置分页页码展示
     SetShowPage() {

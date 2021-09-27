@@ -18,8 +18,15 @@ import title from "./components/title/title.vue";
 import labellist from "./components/labellist/labellist.vue";
 import worldpanel from "./components/datapanel/worldpanel.vue";
 import achievementpanel from "./components/datapanel/achievementpanel.vue";
+import eventpanel from "./components/datapanel/lifeeventPanel.vue";
+import eventbranchpanel from "./components/datapanel/branchpanel.vue";
+import eventcludepanel from "./components/datapanel/cludepanel.vue";
+import eventeffectpanel from "./components/datapanel/effecteventpanel.vue";
 import choosepanel from "./components/datapanel/choosepanel.vue";
+import chooseeffectpanel from "./components/datapanel/effectchoosepanel.vue";
 import charpanel from "./components/datapanel/charpanel.vue";
+import effectpanel from "./components/datapanel/baseeffectpanel.vue";
+import ageconfigpanel from "./components/datapanel/ageconfigpanel.vue";
 
 export default {
   components: {
@@ -27,8 +34,15 @@ export default {
     labellist: labellist,
     worldpanel: worldpanel,
     achievementpanel: achievementpanel,
+    eventpanel:eventpanel,
+    eventbranchpanel:eventbranchpanel,
+    eventcludepanel:eventcludepanel,
+    eventeffectpanel:eventeffectpanel,
     choosepanel:choosepanel,
+    chooseeffectpanel:chooseeffectpanel,
     charpanel:charpanel,
+    effectpanel:effectpanel,
+    ageconfigpanel:ageconfigpanel,
   },
   data() {
     return {
@@ -47,10 +61,10 @@ export default {
           titleID: "eventTitle",
           lablePanelID: "eventlabelPanel",
           lableItems: {
-            eventPanel: "事件编辑",
-            eventbranchPanel: "事件分支编辑",
-            eventcludePanel: "事件条件编辑",
-            eventeffectPanel: "事件效果编辑",
+            eventpanel: "事件编辑",
+            eventbranchpanel: "事件分支编辑",
+            eventcludepanel: "事件条件编辑",
+            eventeffectpanel: "事件效果编辑",
           },
         },
         {
@@ -59,7 +73,7 @@ export default {
           lablePanelID: "chooselabelPanel",
           lableItems: {
             choosepanel: "选择编辑",
-            chooseeffectPanel: "选择效果编辑",
+            chooseeffectpanel: "选择效果编辑",
           },
         },
         {
@@ -75,7 +89,7 @@ export default {
           titleID: "effectTitle",
           lablePanelID: "effectlabelPanel",
           lableItems: {
-            effectPanel: "执行效果编辑",
+            effectpanel: "执行效果编辑",
           },
         },
         {
@@ -83,7 +97,7 @@ export default {
           titleID: "ageConfigTitle",
           lablePanelID: "ageConfiglabelPanel",
           lableItems: {
-            ageConfigPanel: "随机事件配置",
+            ageconfigpanel: "随机事件配置",
           },
         },
       ],
