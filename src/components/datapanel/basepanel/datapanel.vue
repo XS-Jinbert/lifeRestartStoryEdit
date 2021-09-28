@@ -49,11 +49,13 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 import panel from "./basepanel.vue";
-import deletePanel from "../modal/deletePanel.vue";
-import addpanel from "../modal/addPanel.vue";
-import updatepanel from "../modal/updatePanel.vue";
-import infopanel from "../modal/infoPanel.vue";
+import deletePanel from "../modal/normal/deletePanel.vue";
+import addpanel from "../modal/normal/addPanel.vue";
+import updatepanel from "../modal/normal/updatePanel.vue";
+import infopanel from "../modal/normal/infoPanel.vue";
 import datatable from "../basetable/basedatatbale.vue";
 import searchtable from "../basesearch/searchpanel.vue";
 export default {
@@ -66,14 +68,7 @@ export default {
     updatemodal: updatepanel,
     infomodal: infopanel,
   },
-  props: [
-    "tableName",
-    "tableTitles",
-    "modalTitles",
-    "attList",
-    "list",
-    "searchlist",
-  ],
+  props: ["tableName", "tableTitles", "modalTitles", "attList", "url"],
   emits: [
     "addItemRequest",
     "updateItemRequest",
@@ -82,12 +77,16 @@ export default {
   ],
   data() {
     return {
+      router: useRouter(),
       modalIds: {
         add: "AddModal",
         delete: "DeleteModal",
         update: "UpdateModal",
         info: "InfoModal",
       },
+      list: [],
+      searchlist: [],
+      searchunit: null,
     };
   },
   methods: {
@@ -129,40 +128,127 @@ export default {
       $(modalID).modal("show");
     },
 
+    GetAllItem() {
+      console.log("请求ing");
+      if (this.axios.defaults.headers.common["token"] == null) {
+        this.router.push({ name: "login" });
+      } else {
+        this.axios
+          .get(this.url + "findAll")
+          .then((response) => {
+            if (this.result(response)) {
+              this.list = response.data.extended.list;
+              $(modalID).modal("hide");
+            }
+          })
+          .catch(function (error) {
+            // 请求失败处理
+            console.log("请求失败");
+            console.log(error);
+          });
+      }
+    },
+
+    // 更新查询出来的队列
+    GetSearchItems() {
+      if (this.searchunit != null) {
+        this.searchItemsRequest(this.searchunit);
+      }
+    },
+
     // 添加请求
     addItemRequest(unit) {
-      // 向上发送请求
-      this.$emit("addItemRequest", unit);
-      var modalID = "#" + this.modalIds.add;
-      $(modalID).modal("hide");
+      // 发送请求
+      this.axios
+        .post(this.url + "add", unit)
+        .then((response) => {
+          if (this.result(response)) {
+            this.GetAllItem();
+            this.GetSearchItems();
+            CloseModal(this.modalIds.add)
+          }
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          console.log("请求失败");
+          console.log(error);
+        });
     },
 
     // 修改请求
     updateItemRequest(unit) {
-      // 向上发送请求
-      this.$emit("updateItemRequest", unit);
-      var modalID = "#" + this.modalIds.update;
-      $(modalID).modal("hide");
+      // 发送请求
+      this.axios
+        .post(this.url + "update", unit)
+        .then((response) => {
+          if (this.result(response)) {
+            this.GetAllItem();
+            this.GetSearchItems();
+            CloseModal(this.modalIds.update)
+          }
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          console.log("请求失败");
+          console.log(error);
+        });
     },
 
     // 删除请求
     deleteItemRequest(unit) {
-      let data = new FormData();
-      for (var i in this.attList) {
-        data.append(i, parseInt(unit));
-        break;
-      }
-      console.log(data.get("worldID"));
-      // 向上发送请求
-      this.$emit("deleteItemRequest", data);
-      var modalID = "#" + this.modalIds.delete;
-      $(modalID).modal("hide");
+      // 发送请求
+      this.axios
+        .delete(this.url + "delete", { data: unit })
+        .then((response) => {
+          if (this.result(response)) {
+            this.GetAllItem();
+            this.GetSearchItems();
+            CloseModal(this.modalIds.delete)
+          }
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          console.log("请求失败");
+          console.log(error);
+        });
     },
 
-    // 查找请求
+    // 查询请求
     searchItemsRequest(unit) {
-      this.$emit("searchItemsRequest", unit);
+      // 发送请求
+      this.searchunit = unit;
+      this.axios
+        .post(this.url + "select", unit)
+        .then((response) => {
+          if (this.result(response)) {
+            this.searchlist = response.data.extended.list;
+            this.GetAllItem();
+          }
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          console.log("请求失败");
+          console.log(error);
+        });
     },
+
+    // 处理返回信息
+    result(response) {
+      if (response.data.code == 200) {
+        return true;
+      } else {
+        alert(response.data.message);
+        return false;
+      }
+    },
+
+    // 关闭模态框
+    CloseModal(modalID) {
+      $("#" + modalID).modal("hide");
+    },
+  },
+  created() {
+    this.GetAllItem();
   },
 };
 </script>
