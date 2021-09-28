@@ -5,10 +5,6 @@
     :attList="attList"
     :modalTitles="modalTitles"
     :url="url"
-    @addItemRequest="addItemRequest"
-    @updateItemRequest="updateItemRequest"
-    @deleteItemRequest="deleteItemRequest"
-    @searchItemsRequest="searchItemsRequest"
   />
 </template>
 

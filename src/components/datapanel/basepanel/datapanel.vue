@@ -138,7 +138,6 @@ export default {
           .then((response) => {
             if (this.result(response)) {
               this.list = response.data.extended.list;
-              $(modalID).modal("hide");
             }
           })
           .catch(function (error) {
@@ -165,7 +164,7 @@ export default {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            CloseModal(this.modalIds.add)
+            this.CloseModal(this.modalIds.add)
           }
         })
         .catch(function (error) {
@@ -184,7 +183,7 @@ export default {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            CloseModal(this.modalIds.update)
+            this.CloseModal(this.modalIds.update)
           }
         })
         .catch(function (error) {
@@ -203,7 +202,7 @@ export default {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            CloseModal(this.modalIds.delete)
+            this.CloseModal(this.modalIds.delete)
           }
         })
         .catch(function (error) {
