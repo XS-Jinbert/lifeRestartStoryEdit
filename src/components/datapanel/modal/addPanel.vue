@@ -57,7 +57,8 @@ export default {
       for (var i in this.attList) {
         var attname = "#" + this.modalID + " #" + i + "0";
         var value = $(attname).val();
-        if (!Boolean(value) && n != 0) {
+        var flag = Boolean(value);
+        if (!flag && n != 0) {
           alert("请输入" + i + "!");
           return;
         }

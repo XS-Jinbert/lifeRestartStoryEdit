@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
           <form class="form-horizontal">
-            <span class="heading">管理员登录</span>
+            <span class="heading">安全验证</span>
             <div class="form-group">
               <input
                 type="username"

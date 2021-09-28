@@ -11,7 +11,7 @@
             <input
               :type="item.type"
               :name="key"
-              :id="key+10"
+              :id="key + 10"
               class="form-control"
               :placeholder="key"
             />
@@ -38,7 +38,8 @@ export default {
         var attname = "#" + i + "10";
         var value = $(attname).val();
         if (this.attList[i].type == "number") value = parseInt(value);
-        if(Boolean(value))data.append(i, value);
+        var flag = Boolean(value);
+        if (flag) data.append(i, value);
       }
       this.$emit("SearchItems", data);
     },
