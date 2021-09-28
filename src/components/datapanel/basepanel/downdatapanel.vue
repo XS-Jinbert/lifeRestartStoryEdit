@@ -53,7 +53,7 @@ import { useRouter } from "vue-router";
 
 import panel from "./basepanel.vue";
 import deletePanel from "../modal/normal/deletePanel.vue";
-import addpanel from "../modal/normal/addPanel.vue";
+import addpanel from "../modal/down/addPanel.vue";
 import updatepanel from "../modal/normal/updatePanel.vue";
 import infopanel from "../modal/normal/infoPanel.vue";
 import datatable from "../basetable/basedatatbale.vue";

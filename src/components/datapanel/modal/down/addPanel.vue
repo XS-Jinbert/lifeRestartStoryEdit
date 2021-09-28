@@ -32,6 +32,7 @@
           </form>
         </div>
         <div class="modal-footer">
+          <downinput/>
           <button type="button" class="btn btn-default" data-dismiss="modal">
             取消
           </button>
@@ -47,7 +48,11 @@
 </template>
 
 <script>
+import downinput from "../../../inputitems/drowdowninput.vue"
 export default {
+  components:{
+    downinput:downinput,
+  },
   props: ["attList", "modalID", "modalTitle"],
   emits: ["addItemRequest"],
   methods: {
