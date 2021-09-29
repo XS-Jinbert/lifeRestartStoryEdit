@@ -18,19 +18,26 @@ export default {
   data() {
     return {
       tableName: "人物特点：特点编辑",
-      tableTitles: ["成就ID", "成就名字", "成就描述"],
+      tableTitles: ["特点ID", "特点名字", "特点描述", "特点价值", "特点级别"],
       modalTitles: {
-        add: "添加成就",
+        add: "添加特点",
         delete: "删除",
-        update: "修改成就信息",
-        info: "成就详情",
+        update: "修改特点信息",
+        info: "特点详情",
       },
       attList: {
-        achID: { name: "世界标识", type: "number" },
-        name: { name: "世界名字", type: "text" },
-        description: { name: "世界描述", type: "text" },
+        charID: { name: "特点标识", type: "number" },
+        name: { name: "特点名字", type: "text" },
+        description: { name: "特点描述", type: "text" },
+        lifePoint: { name: "特点价值", type: "number" },
+        grade: {
+          name: "特点级别",
+          type: "number",
+          kind: "down",
+          url: "http://localhost:8848/charGrade/",
+        },
       },
-      url:"http://localhost:8848/char/",
+      url: "http://localhost:8848/char/",
     };
   },
 };

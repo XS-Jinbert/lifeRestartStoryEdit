@@ -4,19 +4,24 @@
       <tr>
         <td colspan="4">条件查询</td>
       </tr>
-      <template v-for="(item, key, index) in attList" :key="index + key">
-        <td>
-          <div class="input-group">
-            <span class="input-group-addon">{{ item.name }}</span>
-            <input
-              :type="item.type"
-              :name="key"
-              :id="key + 10"
-              class="form-control"
-              :placeholder="key"
-            />
-          </div>
-        </td>
+      <template v-for="(temp, index) in getList()" :key="temp + index">
+        <tr>
+          <template v-for="(item, key, index) in temp" :key="index + key">
+            <td>
+              <div class="input-group">
+              <span class="input-group-addon">{{ item.name }}</span>
+                <input
+                  :type="item.type"
+                  :name="key"
+                  :id="key + 10"
+                  class="form-control"
+                  :placeholder="key"
+                  min="0"
+                />
+            </div>
+            </td>
+          </template>
+        </tr>
       </template>
       <tr>
         <td colspan="4">
@@ -31,7 +36,23 @@
 export default {
   emits: ["SearchItems"],
   props: ["attList"],
+  data() {
+    return {
+      list: [],
+    };
+  },
   methods: {
+    getList() {
+      let n = 0;
+      let x = 4;
+      for (var i in this.attList) {
+        var flag = Boolean(this.list[parseInt(n / x)]);
+        if (!flag) this.list[parseInt(n / x)] = {};
+        this.list[parseInt(n / x)][i] = this.attList[i];
+        n++;
+      }
+      return this.list;
+    },
     Search() {
       let data = new FormData();
       for (var i in this.attList) {

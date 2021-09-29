@@ -18,13 +18,21 @@
             <template v-for="(item, key, index) in attList" :key="index + key">
               <div v-if="index != 0" class="input-group">
                 <span class="input-group-addon">{{ item.name }}</span>
+                <downinput
+                  v-if="item.kind == 'down'"
+                  :name="key"
+                  :type="item.type"
+                  :id="key + 1"
+                  :placeholder="key"
+                  :url="item.url"
+                />
                 <input
+                  v-else
+                  class="form-control"
                   :type="item.type"
                   :name="key"
-                  :id="key+1"
-                  class="form-control"
+                  :id="key + 1"
                   :placeholder="key"
-                  value=""
                   min="0"
                 />
               </div>
@@ -59,17 +67,29 @@
 </template>
 
 <script>
+import downinput from "../../../inputitems/drowdowninput.vue";
 export default {
+  components: {
+    downinput: downinput,
+  },
   props: ["attList", "modalID", "modalTitle"],
   emits: ["updateItemRequest"],
   methods: {
     UpdateItem() {
       let data = new FormData();
+      var n = 0;
       for (var i in this.attList) {
         var attname = "#" + this.modalID + " #" + i + "1";
         var value = $(attname).val();
+        console.log(value);
+        var flag = Boolean(value);
+        if (!flag && n != 0) {
+          alert("请输入" + i + "!");
+          return;
+        }
         if (this.attList[i].type == "number") value = parseInt(value);
         data.append(i, value);
+        n++;
       }
       this.$emit("updateItemRequest", data);
     },

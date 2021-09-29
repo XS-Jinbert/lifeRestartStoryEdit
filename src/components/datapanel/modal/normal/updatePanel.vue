@@ -65,11 +65,18 @@ export default {
   methods: {
     UpdateItem() {
       let data = new FormData();
+      var n = 0;
       for (var i in this.attList) {
         var attname = "#" + this.modalID + " #" + i + "1";
         var value = $(attname).val();
+        var flag = Boolean(value);
+        if (!flag && n != 0) {
+          alert("请输入" + i + "!");
+          return;
+        }
         if (this.attList[i].type == "number") value = parseInt(value);
         data.append(i, value);
+        n++;
       }
       this.$emit("updateItemRequest", data);
     },

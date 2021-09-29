@@ -77,7 +77,6 @@ export default {
         .post("http://localhost:8848/login", unit)
         .then((response) => {
           if (this.result(response)) {
-            console.log(response);
             this.login(response.data.extended.token);
             // alert("登录成功");
           }

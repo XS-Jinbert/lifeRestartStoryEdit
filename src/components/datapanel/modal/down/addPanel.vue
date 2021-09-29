@@ -18,21 +18,28 @@
             <template v-for="(item, key, index) in attList" :key="index + key">
               <div v-if="index != 0" class="input-group">
                 <span class="input-group-addon">{{ item.name }}</span>
+                <downinput
+                  v-if="item.kind == 'down'"
+                  :name="key"
+                  :type="item.type"
+                  :id="key + 0"
+                  :placeholder="key"
+                  :url="item.url"
+                />
                 <input
+                  v-else
+                  class="form-control"
                   :type="item.type"
                   :name="key"
-                  :id="key+0"
-                  class="form-control"
+                  :id="key + 0"
                   :placeholder="key"
                   min="0"
-                  value=""
                 />
               </div>
             </template>
           </form>
         </div>
         <div class="modal-footer">
-          <downinput/>
           <button type="button" class="btn btn-default" data-dismiss="modal">
             取消
           </button>
@@ -48,10 +55,10 @@
 </template>
 
 <script>
-import downinput from "../../../inputitems/drowdowninput.vue"
+import downinput from "../../../inputitems/drowdowninput.vue";
 export default {
-  components:{
-    downinput:downinput,
+  components: {
+    downinput: downinput,
   },
   props: ["attList", "modalID", "modalTitle"],
   emits: ["addItemRequest"],

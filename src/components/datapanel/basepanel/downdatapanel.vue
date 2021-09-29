@@ -54,7 +54,7 @@ import { useRouter } from "vue-router";
 import panel from "./basepanel.vue";
 import deletePanel from "../modal/normal/deletePanel.vue";
 import addpanel from "../modal/down/addPanel.vue";
-import updatepanel from "../modal/normal/updatePanel.vue";
+import updatepanel from "../modal/down/updatePanel.vue";
 import infopanel from "../modal/normal/infoPanel.vue";
 import datatable from "../basetable/basedatatbale.vue";
 import searchtable from "../basesearch/searchpanel.vue";
@@ -69,12 +69,6 @@ export default {
     infomodal: infopanel,
   },
   props: ["tableName", "tableTitles", "modalTitles", "attList", "url"],
-  emits: [
-    "addItemRequest",
-    "updateItemRequest",
-    "deleteItemRequest",
-    "searchItemsRequest",
-  ],
   data() {
     return {
       router: useRouter(),
@@ -94,10 +88,13 @@ export default {
     OpenDelete(unit) {
       var modalID = "#" + this.modalIds.delete;
       var id = null;
+      var flagKey = null;
       for (var key in unit) {
         id = unit[key];
+        flagKey = key;
         break;
       }
+      $(modalID + " #IDName").attr("name", flagKey);
       $(modalID + " #ID").attr("name", id);
       $(modalID).modal("show");
     },
@@ -129,7 +126,6 @@ export default {
     },
 
     GetAllItem() {
-      console.log("请求ing");
       if (this.axios.defaults.headers.common["token"] == null) {
         this.router.push({ name: "login" });
       } else {
@@ -164,7 +160,7 @@ export default {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            this.CloseModal(this.modalIds.add)
+            this.CloseModal(this.modalIds.add);
           }
         })
         .catch(function (error) {
@@ -183,7 +179,7 @@ export default {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            this.CloseModal(this.modalIds.update)
+            this.CloseModal(this.modalIds.update);
           }
         })
         .catch(function (error) {
@@ -197,12 +193,12 @@ export default {
     deleteItemRequest(unit) {
       // 发送请求
       this.axios
-        .delete(this.url + "delete", { data: unit })
+        .delete(this.url + "delete", {data:unit})
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();
             this.GetSearchItems();
-            this.CloseModal(this.modalIds.delete)
+            this.CloseModal(this.modalIds.delete);
           }
         })
         .catch(function (error) {

@@ -20,10 +20,22 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">
+          <button
+            id="IDName"
+            name=""
+            type="button"
+            class="btn btn-default"
+            data-dismiss="modal"
+          >
             取消
           </button>
-          <button id="ID" name="" type="button" class="btn btn-danger" @click="DeleteItem">
+          <button
+            id="ID"
+            name=""
+            type="button"
+            class="btn btn-danger"
+            @click="DeleteItem"
+          >
             删除
           </button>
         </div>
@@ -36,10 +48,17 @@
 
 <script>
 export default {
-  props:["modalID"],
+  props: ["modalID"],
   methods: {
     DeleteItem() {
-      this.$emit("deleteItemRequest", parseInt($("#ID").attr('name')));
+      let data = new FormData();
+      data.append(
+        $("#" + this.modalID + " #IDName").attr("name"),
+        parseInt($("#" + this.modalID + " #ID").attr("name"))
+      );
+      console.log($("#" + this.modalID + " #IDName").attr("name"));
+      console.log(data.get($("#" + this.modalID + " #IDName").attr("name")));
+      this.$emit("deleteItemRequest", data);
     },
   },
 };
