@@ -64,7 +64,6 @@ export default {
   },
   data() {
     return {
-      datalist: this.list,
       pageNum: 1,
       pageSize: 30,
       currentpage: 0,
@@ -87,18 +86,18 @@ export default {
     // 分页
     SlicePage() {
       // 根据后台数据的条数和每页显示数量算出一共几页,得0时设为1 ;
-      this.pageNum = Math.ceil(this.list.length / this.pageSize) || 1;
-      for (let i = 0; i < this.pageNum; i++) {
-        // 每一页都是一个数组 形如 [['第一页的数据'],['第二页的数据'],['第三页数据']]
-        // 根据每页显示数量 将后台的数据分割到 每一页,假设pageSize为30， 则第一页是1-30条，即slice(0,30)
-        this.totalPage[i] = this.list.slice(
-          this.pageSize * i,
-          this.pageSize * (i + 1)
-        );
-      }
-      this.SetShowPage();
-      // 获取到数据后显示第一页内容
-      this.showList = this.totalPage[this.currentpage];
+        this.pageNum = Math.ceil(this.list.length / this.pageSize) || 1;
+        for (let i = 0; i < this.pageNum; i++) {
+          // 每一页都是一个数组 形如 [['第一页的数据'],['第二页的数据'],['第三页数据']]
+          // 根据每页显示数量 将后台的数据分割到 每一页,假设pageSize为30， 则第一页是1-30条，即slice(0,30)
+          this.totalPage[i] = this.list.slice(
+            this.pageSize * i,
+            this.pageSize * (i + 1)
+          );
+        }
+        this.SetShowPage();
+        // 获取到数据后显示第一页内容
+        this.showList = this.totalPage[this.currentpage];
     },
     // 设置分页页码展示
     SetShowPage() {
