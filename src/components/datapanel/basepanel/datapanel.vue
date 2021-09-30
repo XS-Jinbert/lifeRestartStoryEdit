@@ -193,7 +193,7 @@ export default {
     deleteItemRequest(unit) {
       // 发送请求
       this.axios
-        .delete(this.url + "delete", {data:unit})
+        .delete(this.url + "delete", {params:unit})
         .then((response) => {
           if (this.result(response)) {
             this.GetAllItem();

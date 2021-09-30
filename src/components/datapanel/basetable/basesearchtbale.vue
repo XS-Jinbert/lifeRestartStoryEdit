@@ -58,6 +58,7 @@ export default {
       for (var i in this.attList) {
         var attname = "#" + i + "10";
         var value = $(attname).val();
+        console.log(attname + ": " + value)
         if (this.attList[i].type == "number") value = parseInt(value);
         var flag = Boolean(value);
         if (flag) data.append(i, value);

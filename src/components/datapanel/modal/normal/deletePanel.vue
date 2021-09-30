@@ -58,7 +58,13 @@ export default {
       );
       console.log($("#" + this.modalID + " #IDName").attr("name"));
       console.log(data.get($("#" + this.modalID + " #IDName").attr("name")));
-      this.$emit("deleteItemRequest", data);
+      var flag = {};
+      flag[$("#" + this.modalID + " #IDName").attr("name")] = parseInt(
+        $("#" + this.modalID + " #ID").attr("name")
+      );
+      // this.$emit("deleteItemRequest", data);
+      this.$emit("deleteItemRequest", flag);
+      // this.$emit("deleteItemRequest", parseInt($("#" + this.modalID + " #ID").attr("name")));
     },
   },
 };

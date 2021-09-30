@@ -10,7 +10,7 @@
 
 
 <script>
-import datapanel from "./basepanel/datapanel.vue";
+import datapanel from "./basepanel/downdatapanel.vue";
 export default {
   components: {
     panel: datapanel,
@@ -18,19 +18,34 @@ export default {
   data() {
     return {
       tableName: "人生事件：事件编辑",
-      tableTitles: ["成就ID", "成就名字", "成就描述"],
+      tableTitles: [
+        "事件id",
+        "事件名字",
+        "事件描述",
+        "事件文本",
+        "事件价值",
+        "事件级别",
+      ],
       modalTitles: {
-        add: "添加成就",
+        add: "添加事件",
         delete: "删除",
-        update: "修改成就信息",
-        info: "成就详情",
+        update: "修改事件信息",
+        info: "事件详情",
       },
       attList: {
-        achID: { name: "世界标识", type: "number" },
-        name: { name: "世界名字", type: "text" },
-        description: { name: "世界描述", type: "text" },
+        eventID: { name: "事件标识", type: "number" },
+        name: { name: "事件名字", type: "text" },
+        description: { name: "事件描述", type: "text" },
+        happen: { name: "事件文本", type: "text" },
+        lifePoint: { name: "事件价值", type: "number" },
+        noRandom: {
+          name: "事件级别",
+          type: "number",
+          kind: "down",
+          url: "http://localhost:8848/eventNoRandom/",
+        },
       },
-      url:"http://localhost:8848/event/",
+      url: "http://localhost:8848/event/",
     };
   },
 };
