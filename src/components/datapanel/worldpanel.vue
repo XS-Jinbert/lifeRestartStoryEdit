@@ -25,7 +25,7 @@ export default {
         info: "世界详情",
       },
       attList: {
-        worldID: { name: "世界标识", type: "number", add: "ignore" },
+        worldID: { name: "世界标识", type: "number", add: "ignore", update: "ignore" },
         name: { name: "世界名字", type: "text" },
         description: { name: "世界描述", type: "text" },
         lifePoint: { name: "世界价值", type: "number" },

@@ -26,7 +26,7 @@ export default {
         info: "执行效果详情",
       },
       attList: {
-        effectID: { name: "执行标识", type: "number", add: "ignore" },
+        effectID: { name: "执行标识", type: "number", add: "ignore", update: "ignore" },
         effectKindID: {
           name: "类型标识",
           type: "number",

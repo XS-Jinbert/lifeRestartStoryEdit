@@ -26,7 +26,7 @@ export default {
         info: "分支详情",
       },
       attList: {
-        branchID: { name: "分支ID", type: "number", add: "ignore" },
+        branchID: { name: "分支ID", type: "number", add: "ignore", update: "ignore" },
         eventID: {
           name: "事件ID",
           type: "number",

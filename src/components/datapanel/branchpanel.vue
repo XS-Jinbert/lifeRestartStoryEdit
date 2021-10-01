@@ -29,6 +29,7 @@ export default {
         branchID: {
           name: "分支ID",
           type: "number",
+          update: "ignore",
           kind: "down",
           url: "http://localhost:8848/eventBranch/",
         },
