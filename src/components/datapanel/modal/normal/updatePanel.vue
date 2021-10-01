@@ -16,7 +16,7 @@
         <div class="modal-body">
           <form>
             <template v-for="(item, key, index) in attList" :key="index + key">
-              <div v-if="index != 0" class="input-group">
+              <div v-if="item.add != 'ignore'" class="input-group">
                 <span class="input-group-addon">{{ item.name }}</span>
                 <input
                   :type="item.type"
