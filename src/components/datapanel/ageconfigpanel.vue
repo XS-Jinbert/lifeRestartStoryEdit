@@ -10,27 +10,41 @@
 
 
 <script>
-import datapanel from "./basepanel/datapanel.vue";
+import datapanel from "./basepanel/downdatapanel.vue";
 export default {
   components: {
     panel: datapanel,
   },
   data() {
     return {
-      tableName: "事件配置：随机事件",
-      tableTitles: ["成就ID", "成就名字", "成就描述"],
+      tableName: "事件配置：随机配置事件",
+      tableTitles: ["配置ID", "年龄", "事件ID", "权值"],
       modalTitles: {
-        add: "添加成就",
+        add: "添加随机事件",
         delete: "删除",
-        update: "修改成就信息",
-        info: "成就详情",
+        update: "修改随机事件信息",
+        info: "随机事件详情",
       },
       attList: {
-        achID: { name: "世界标识", type: "number", add: "ignore", update: "ignore" },
-        name: { name: "世界名字", type: "text" },
-        description: { name: "世界描述", type: "text" },
+        configID: {
+          name: "标识",
+          type: "number",
+          add: "ignore",
+          update: "ignore",
+        },
+        age: {
+          name: "年龄",
+          type: "number",
+        },
+        eventID: {
+          name: "事件",
+          type: "number",
+          kind: "down",
+          url: "http://localhost:8848/event/",
+        },
+        weight: { name: "权值", type: "number" },
       },
-      url:"http://localhost:8848/ageConfig/",
+      url: "http://localhost:8848/ageConfig/",
     };
   },
 };
