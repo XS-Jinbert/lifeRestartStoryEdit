@@ -19,6 +19,7 @@ import labellist from "./components/labellist/labellist.vue";
 import worldpanel from "./components/datapanel/worldpanel.vue";
 import achievementpanel from "./components/datapanel/achievementpanel.vue";
 import eventpanel from "./components/datapanel/lifeeventPanel.vue";
+import branchpanel from "./components/datapanel/editbranch.vue";
 import eventbranchpanel from "./components/datapanel/branchpanel.vue";
 import eventcludepanel from "./components/datapanel/cludepanel.vue";
 import eventeffectpanel from "./components/datapanel/effecteventpanel.vue";
@@ -26,6 +27,7 @@ import choosepanel from "./components/datapanel/choosepanel.vue";
 import chooseeffectpanel from "./components/datapanel/effectchoosepanel.vue";
 import charpanel from "./components/datapanel/charpanel.vue";
 import effectpanel from "./components/datapanel/baseeffectpanel.vue";
+import cludepanel from "./components/datapanel/editcludepanel.vue";
 import ageconfigpanel from "./components/datapanel/ageconfigpanel.vue";
 
 export default {
@@ -35,6 +37,7 @@ export default {
     worldpanel: worldpanel,
     achievementpanel: achievementpanel,
     eventpanel:eventpanel,
+    branchpanel:branchpanel,
     eventbranchpanel:eventbranchpanel,
     eventcludepanel:eventcludepanel,
     eventeffectpanel:eventeffectpanel,
@@ -42,6 +45,7 @@ export default {
     chooseeffectpanel:chooseeffectpanel,
     charpanel:charpanel,
     effectpanel:effectpanel,
+    cludepanel:cludepanel,
     ageconfigpanel:ageconfigpanel,
   },
   data() {
@@ -85,11 +89,13 @@ export default {
           },
         },
         {
-          titleName: "执行效果编辑",
+          titleName: "判定相关编辑",
           titleID: "effectTitle",
           lablePanelID: "effectlabelPanel",
           lableItems: {
+            branchpanel: "分支编辑",
             effectpanel: "执行效果编辑",
+            cludepanel: "判定条件编辑",
           },
         },
         {

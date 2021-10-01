@@ -78,6 +78,7 @@ export default {
         .then((response) => {
           if (this.result(response)) {
             this.login(response.data.extended.token);
+            this.toHome();
             // alert("登录成功");
           }
         })
@@ -89,7 +90,7 @@ export default {
     },
     login(token){
       this.axios.defaults.headers.common["token"] = token;
-      this.toHome();
+      
     },
 
     // 处理返回信息

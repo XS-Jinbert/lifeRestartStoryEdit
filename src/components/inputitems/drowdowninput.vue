@@ -2,12 +2,12 @@
   <input
     :id="id"
     :name="name"
-    list="test"
+    :list="id+99"
     class="form-control"
     :placeholder="placeholder"
     min="0"
   />
-  <datalist id="test">
+  <datalist :id="id+99">
     <template v-for="(item, key, index) in list" :key="index + item">
       <option :value="getattName(item)">{{ item.name }}</option>
     </template>
@@ -59,6 +59,9 @@ export default {
     },
   },
   created() {
+    this.GetAllItem();
+  },
+  activated(){
     this.GetAllItem();
   },
 };

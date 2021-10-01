@@ -245,5 +245,8 @@ export default {
   created() {
     this.GetAllItem();
   },
+  activated(){
+    this.GetAllItem();
+  },
 };
 </script>
