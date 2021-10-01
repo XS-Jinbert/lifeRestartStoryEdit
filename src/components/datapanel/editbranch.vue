@@ -31,16 +31,16 @@ export default {
           name: "事件ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/event/",
+          url: "/event/",
         },
         chooseID: {
           name: "选择ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/choose/",
+          url: "/choose/",
         },
       },
-      url: "http://localhost:8848/eventBranch/",
+      url: "/eventBranch/",
     };
   },
 };

@@ -42,10 +42,10 @@ export default {
           name: "事件级别",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/eventNoRandom/",
+          url: "/eventNoRandom/",
         },
       },
-      url: "http://localhost:8848/event/",
+      url: "/event/",
     };
   },
 };

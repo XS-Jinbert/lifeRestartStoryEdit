@@ -30,7 +30,7 @@ export default {
         name: { name: "世界名字", type: "text" },
         description: { name: "世界描述", type: "text" },
       },
-      url: "http://localhost:8848/achievement/",
+      url: "/achievement/",
     };
   },
 };

@@ -36,16 +36,16 @@ export default {
           name: "事件ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/event/",
+          url: "/event/",
         },
         effectID: {
           name: "效果ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/effect/",
+          url: "/effect/",
         },
       },
-      url: "http://localhost:8848/eventEffect/",
+      url: "/eventEffect/",
     };
   },
 };

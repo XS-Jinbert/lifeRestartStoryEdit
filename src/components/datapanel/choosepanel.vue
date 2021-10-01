@@ -30,7 +30,7 @@ export default {
         name: { name: "选择名字", type: "text" },
         description: { name: "选择描述", type: "text" },
       },
-      url:"http://localhost:8848/choose/",
+      url:"/choose/",
     };
   },
 };

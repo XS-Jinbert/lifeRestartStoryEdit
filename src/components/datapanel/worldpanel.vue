@@ -30,7 +30,7 @@ export default {
         description: { name: "世界描述", type: "text" },
         lifePoint: { name: "世界价值", type: "number" },
       },
-      url: "http://localhost:8848/world/",
+      url: "/world/",
     };
   },
 };

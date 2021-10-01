@@ -31,16 +31,16 @@ export default {
           type: "number",
           update: "ignore",
           kind: "down",
-          url: "http://localhost:8848/eventBranch/",
+          url: "/eventBranch/",
         },
         cludeID: {
           name: "判定ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/clude/",
+          url: "/clude/",
         },
       },
-      url: "http://localhost:8848/branch/",
+      url: "/branch/",
     };
   },
 };

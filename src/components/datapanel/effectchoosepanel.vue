@@ -36,16 +36,16 @@ export default {
           name: "选择ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/choose/",
+          url: "/choose/",
         },
         effectID: {
           name: "效果ID",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/effect/",
+          url: "/effect/",
         },
       },
-      url:"http://localhost:8848/chooseEffect/",
+      url:"/chooseEffect/",
     };
   },
 };

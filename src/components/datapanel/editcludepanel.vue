@@ -37,12 +37,12 @@ export default {
           name: "判定类型",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/judgeKind/",
+          url: "/judgeKind/",
         },
         atName: { name: "判定属性", type: "text" },
         value: { name: "判定的值", type: "number" },
       },
-      url: "http://localhost:8848/clude/",
+      url: "/clude/",
     };
   },
 };

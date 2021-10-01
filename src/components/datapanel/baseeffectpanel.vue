@@ -43,12 +43,12 @@ export default {
           name: "类型标识",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/effectKind/",
+          url: "/effectKind/",
         },
         atName: { name: "执行属性", type: "text" },
         value: { name: "执行的值", type: "number" },
       },
-      url: "http://localhost:8848/effect/",
+      url: "/effect/",
     };
   },
 };

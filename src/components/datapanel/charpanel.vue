@@ -34,10 +34,10 @@ export default {
           name: "特点级别",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/charGrade/",
+          url: "/charGrade/",
         },
       },
-      url: "http://localhost:8848/char/",
+      url: "/char/",
     };
   },
 };

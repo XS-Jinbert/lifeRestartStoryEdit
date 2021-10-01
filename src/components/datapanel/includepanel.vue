@@ -31,16 +31,16 @@ export default {
           name: "事件标识",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/event/",
+          url: "/event/",
         },
         cludeID: {
           name: "条件标识",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/clude/",
+          url: "/clude/",
         },
       },
-      url: "http://localhost:8848/eventInclude/",
+      url: "/eventInclude/",
     };
   },
 };

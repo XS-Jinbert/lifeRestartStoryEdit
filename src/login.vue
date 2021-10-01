@@ -74,7 +74,7 @@ export default {
       unit.append("username", document.getElementById('username').value);
       unit.append("password", document.getElementById('password').value);
       this.axios
-        .post("http://localhost:8848/login", unit)
+        .post("/login", unit)
         .then((response) => {
           if (this.result(response)) {
             this.login(response.data.extended.token);

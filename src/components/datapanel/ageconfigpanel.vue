@@ -40,11 +40,11 @@ export default {
           name: "事件",
           type: "number",
           kind: "down",
-          url: "http://localhost:8848/event/",
+          url: "/event/",
         },
         weight: { name: "权值", type: "number" },
       },
-      url: "http://localhost:8848/ageConfig/",
+      url: "/ageConfig/",
     };
   },
 };
