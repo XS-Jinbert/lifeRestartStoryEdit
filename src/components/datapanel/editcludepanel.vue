@@ -26,7 +26,7 @@ export default {
         info: "成就详情",
       },
       attList: {
-        achID: { name: "世界标识", type: "number" },
+        achID: { name: "世界标识", type: "number", add: "ignore" },
         name: { name: "世界名字", type: "text" },
         description: { name: "世界描述", type: "text" },
       },

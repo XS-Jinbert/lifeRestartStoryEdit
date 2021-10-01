@@ -16,7 +16,6 @@ export default {
   },
   data() {
     return {
-      
       tableName: "基础信息：世界编辑",
       tableTitles: ["世界ID", "世界名字", "世界描述", "世界价值"],
       modalTitles: {
@@ -26,12 +25,12 @@ export default {
         info: "世界详情",
       },
       attList: {
-        worldID: { name: "世界标识", type: "number" },
+        worldID: { name: "世界标识", type: "number", add: "ignore" },
         name: { name: "世界名字", type: "text" },
         description: { name: "世界描述", type: "text" },
         lifePoint: { name: "世界价值", type: "number" },
       },
-      url:"http://localhost:8848/world/",
+      url: "http://localhost:8848/world/",
     };
   },
 };

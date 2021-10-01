@@ -26,7 +26,7 @@ export default {
         info: "特点详情",
       },
       attList: {
-        charID: { name: "特点标识", type: "number" },
+        charID: { name: "特点标识", type: "number", add: "ignore" },
         name: { name: "特点名字", type: "text" },
         description: { name: "特点描述", type: "text" },
         lifePoint: { name: "特点价值", type: "number" },

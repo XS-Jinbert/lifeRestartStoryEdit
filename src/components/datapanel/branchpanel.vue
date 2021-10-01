@@ -10,27 +10,36 @@
 
 
 <script>
-import datapanel from "./basepanel/datapanel.vue";
+import datapanel from "./basepanel/downdatapanel.vue";
 export default {
   components: {
     panel: datapanel,
   },
   data() {
     return {
-      tableName: "人生事件：事件分支编辑",
-      tableTitles: ["成就ID", "成就名字", "成就描述"],
+      tableName: "判定相关：分支判定编辑",
+      tableTitles: ["分支ID", "判定ID"],
       modalTitles: {
-        add: "添加成就",
+        add: "添加分支判定",
         delete: "删除",
-        update: "修改成就信息",
-        info: "成就详情",
+        update: "修改分支判定信息",
+        info: "分支判定详情",
       },
       attList: {
-        achID: { name: "世界标识", type: "number" },
-        name: { name: "世界名字", type: "text" },
-        description: { name: "世界描述", type: "text" },
+        branchID: {
+          name: "分支ID",
+          type: "number",
+          kind: "down",
+          url: "http://localhost:8848/eventBranch/",
+        },
+        cludeID: {
+          name: "判定ID",
+          type: "number",
+          kind: "down",
+          url: "http://localhost:8848/clude/",
+        },
       },
-      url:"http://localhost:8848/branch/",
+      url: "http://localhost:8848/branch/",
     };
   },
 };

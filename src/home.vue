@@ -66,7 +66,7 @@ export default {
           lablePanelID: "eventlabelPanel",
           lableItems: {
             eventpanel: "事件编辑",
-            eventbranchpanel: "事件分支编辑",
+            branchpanel: "事件分支编辑",
             eventcludepanel: "事件条件编辑",
             eventeffectpanel: "事件效果编辑",
           },
@@ -93,9 +93,10 @@ export default {
           titleID: "effectTitle",
           lablePanelID: "effectlabelPanel",
           lableItems: {
-            branchpanel: "分支编辑",
             effectpanel: "执行效果编辑",
             cludepanel: "判定条件编辑",
+            eventbranchpanel: "分支判定编辑",
+            
           },
         },
         {

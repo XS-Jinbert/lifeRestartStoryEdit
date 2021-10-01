@@ -33,7 +33,7 @@ export default {
         info: "事件详情",
       },
       attList: {
-        eventID: { name: "事件标识", type: "number" },
+        eventID: { name: "事件标识", type: "number", add: "ignore" },
         name: { name: "事件名字", type: "text" },
         description: { name: "事件描述", type: "text" },
         happen: { name: "事件文本", type: "text" },

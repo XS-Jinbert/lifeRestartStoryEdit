@@ -26,7 +26,7 @@ export default {
         info: "选择详情",
       },
       attList: {
-        achID: { name: "选择标识", type: "number" },
+        chooseID: { name: "选择标识", type: "number", add: "ignore" },
         name: { name: "选择名字", type: "text" },
         description: { name: "选择描述", type: "text" },
       },
