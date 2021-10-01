@@ -18,7 +18,13 @@ export default {
   data() {
     return {
       tableName: "执行效果：效果编辑",
-      tableTitles: ["执行效果ID", "执行效果类型ID", "执行属性", "执行的值"],
+      tableTitles: [
+        "执行效果ID",
+        "效果名称",
+        "执行效果类型ID",
+        "执行属性",
+        "执行的值",
+      ],
       modalTitles: {
         add: "添加执行效果",
         delete: "删除",
@@ -26,7 +32,13 @@ export default {
         info: "执行效果详情",
       },
       attList: {
-        effectID: { name: "执行标识", type: "number", add: "ignore", update: "ignore" },
+        effectID: {
+          name: "执行标识",
+          type: "number",
+          add: "ignore",
+          update: "ignore",
+        },
+        name: { name: "效果名称", type: "text" },
         effectKindID: {
           name: "类型标识",
           type: "number",

@@ -21,7 +21,8 @@ import achievementpanel from "./components/datapanel/achievementpanel.vue";
 import eventpanel from "./components/datapanel/lifeeventPanel.vue";
 import branchpanel from "./components/datapanel/editbranch.vue";
 import eventbranchpanel from "./components/datapanel/branchpanel.vue";
-import eventcludepanel from "./components/datapanel/cludepanel.vue";
+import eventincludepanel from "./components/datapanel/includepanel.vue";
+import eventexcludepanel from "./components/datapanel/excludepanel.vue";
 import eventeffectpanel from "./components/datapanel/effecteventpanel.vue";
 import choosepanel from "./components/datapanel/choosepanel.vue";
 import chooseeffectpanel from "./components/datapanel/effectchoosepanel.vue";
@@ -39,7 +40,8 @@ export default {
     eventpanel:eventpanel,
     branchpanel:branchpanel,
     eventbranchpanel:eventbranchpanel,
-    eventcludepanel:eventcludepanel,
+    eventincludepanel:eventincludepanel,
+    eventexcludepanel:eventexcludepanel,
     eventeffectpanel:eventeffectpanel,
     choosepanel:choosepanel,
     chooseeffectpanel:chooseeffectpanel,
@@ -67,8 +69,9 @@ export default {
           lableItems: {
             eventpanel: "事件编辑",
             branchpanel: "事件分支编辑",
-            eventcludepanel: "事件条件编辑",
             eventeffectpanel: "事件效果编辑",
+            eventincludepanel: "事件开启条件编辑",
+            eventexcludepanel: "事件关闭条件编辑",
           },
         },
         {

@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       tableName: "判定相关：判定条件编辑",
-      tableTitles: ["条件id", "判定类型", "判定属性", "判定的值"],
+      tableTitles: ["条件id","判定名字", "判定类型", "判定属性", "判定的值"],
       modalTitles: {
         add: "添加判定条件",
         delete: "删除",
@@ -32,6 +32,7 @@ export default {
           add: "ignore",
           update: "ignore",
         },
+        name: { name: "判定名字", type: "text" },
         judgeID: {
           name: "判定类型",
           type: "number",
