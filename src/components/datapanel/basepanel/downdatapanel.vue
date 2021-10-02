@@ -138,7 +138,7 @@ export default {
           })
           .catch(function (error) {
             // 请求失败处理
-            console.log("请求失败");
+            alert("服务器错误或网络异常！");
             console.log(error);
           });
       }
@@ -165,7 +165,7 @@ export default {
         })
         .catch(function (error) {
           // 请求失败处理
-          console.log("请求失败");
+          alert("服务器错误或网络异常！");
           console.log(error);
         });
     },
@@ -184,7 +184,7 @@ export default {
         })
         .catch(function (error) {
           // 请求失败处理
-          console.log("请求失败");
+          alert("服务器错误或网络异常！");
           console.log(error);
         });
     },
@@ -203,7 +203,7 @@ export default {
         })
         .catch(function (error) {
           // 请求失败处理
-          console.log("请求失败");
+          alert("服务器错误或网络异常！");
           console.log(error);
         });
     },
@@ -222,7 +222,7 @@ export default {
         })
         .catch(function (error) {
           // 请求失败处理
-          console.log("请求失败");
+          alert("服务器错误或网络异常！");
           console.log(error);
         });
     },

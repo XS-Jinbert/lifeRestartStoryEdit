@@ -47,7 +47,9 @@
                 <label for="checkbox1"></label>
               </div>
               <span class="text">记住我</span>
-              <button @click="loginRequest" class="btn btn-info">立刻登录</button>
+              <button @click="loginRequest" class="btn btn-info">
+                立刻登录
+              </button>
             </div>
           </form>
         </div>
@@ -70,9 +72,8 @@ export default {
     },
     loginRequest() {
       let unit = new FormData();
-      
-      unit.append("username", document.getElementById('username').value);
-      unit.append("password", document.getElementById('password').value);
+      unit.append("username", document.getElementById("username").value);
+      unit.append("password", document.getElementById("password").value);
       this.axios
         .post("/login", unit)
         .then((response) => {
@@ -84,13 +85,12 @@ export default {
         })
         .catch(function (error) {
           // 请求失败处理
-          console.log("请求失败");
+          alert("登录失败，请检查网络或服务器！");
           console.log(error);
         });
     },
-    login(token){
+    login(token) {
       this.axios.defaults.headers.common["token"] = token;
-      
     },
 
     // 处理返回信息

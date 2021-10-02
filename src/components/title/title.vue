@@ -33,10 +33,12 @@
               >导出数据 <span class="caret"></span
             ></a>
             <ul class="dropdown-menu">
-              <li><a >导出人生事件配置</a></li>
-              <li><a >导出人生选择配置</a></li>
-              <li><a >导出人物特点配置</a></li>
-              <li><a >导出年龄随机事件配置</a></li>
+              <li><a>导出判定条件</a></li>
+              <li><a>导出执行效果</a></li>
+              <li><a>导出人生事件配置</a></li>
+              <li><a @click="GetChoose">导出人生选择配置</a></li>
+              <li><a>导出人物特点配置</a></li>
+              <li><a @click="GetAgeConfig">导出年龄随机事件配置</a></li>
             </ul>
           </li>
         </ul>
@@ -48,7 +50,94 @@
 </template>
 
 <script>
-export default {};
+import fileDownload from "js-file-download";
+export default {
+  data(){
+    return {
+      url:"/output/"
+    }
+  },
+  methods: {
+    // 导出人生事件
+    GetEvent() {
+      this.axios
+        .get(this.url + "outputEvent", { responseType: "json" })
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "LifeEvent.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+    // 导出人生选择
+    GetChoose() {
+      this.axios
+        .get(this.url + "outputChoose", { responseType: "json" })
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "Choose.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+    // 导出人物特点
+    GetChar() {
+      this.axios
+        .get(this.url + "outputChar", { responseType: "json" })
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "Characteristic.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+    // 导出执行效果
+    GetEffect() {
+      this.axios
+        .get(this.url + "outputEffect", { responseType: "json" })
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "Effect.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+    // 导出判定条件
+    GetClude() {
+      this.axios
+        .get(this.url + "outputClude", { responseType: "json" })
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "Clude.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+    // 导出年龄配置
+    GetAgeConfig() {
+      this.axios
+        .get(this.url + "outputAgeConfig",{ responseType: "json" } )
+        .then((res) => {
+          fileDownload(JSON.stringify(res.data.extended.list), "AgeConfig.json");
+        })
+        .catch(function (error) {
+          // 请求失败处理
+          alert("服务器错误或网络异常！");
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
